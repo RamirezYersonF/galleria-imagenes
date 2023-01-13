@@ -1,0 +1,110 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    background-color: #E1D7C6;
+}
+.title{
+    text-align: center;
+    padding: 30px 0 0 0;
+    color: white;
+    font-weight: bold;
+    font-size: 3rem;
+}
+main{
+    margin: 10px;
+}
+
+.gallery{
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 160px;
+    gap: .8em;
+    grid-template-areas: 
+    "img1 img1 img2 img3"
+    "img1 img1 img4 img4"
+    "img5 img5 img6 img7"
+    "img5 img5 img8 img8";
+}
+.gallery__img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.gallery__picture--g1{
+    grid-area:img1;
+}
+.gallery__picture--g2{
+    grid-area:img2;
+}
+.gallery__picture--g3{
+    grid-area:img3;
+}
+.gallery__picture--g4{
+    grid-area:img4;
+}
+.gallery__picture--g5{
+    grid-area:img5;
+}
+.gallery__picture--g6{
+    grid-area:img6;
+}
+.gallery__picture--g7{
+    grid-area:img7;
+}
+.gallery__picture--g8{
+    grid-area:img8;
+}
+.gallery__picture{
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+.gallery__picture::before{
+    content: "Imagen";
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color: rgba(255, 247, 232,0.5);
+    transform: scale(0);
+    transition: transform .6s opacity;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+}
+.gallery__picture:hover::before{
+    transform: scale(100%) rotate(360deg);
+}
+@media(max-width: 750px) {
+    .gallery{
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-areas: 
+        "img1 img1 img1"
+        "img2 img3 img3"
+        "img4 img4 img4"
+        "img5 img5 img5"
+        "img5 img5  img5"
+        "img6 img7 img7"
+        "img8 img8 img8";
+    }
+}
+@media(max-width:400px){
+    .gallery{
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-areas: 
+        "img1 img1"
+        "img2 img3"
+        "img4 img4"
+        "img5 img5"
+        "img5 img5"
+        "img6 img7"
+        "img8 img8";
+    }
+}
